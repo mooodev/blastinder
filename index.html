@@ -70,6 +70,7 @@
 <script>
     let balance = 10;
 function match() {
+    Telegram.WebApp.MainButton.enable()
     balance -= 1;
     mainButton.text =  '💰:'+ balance +' BLAST/Matches',
     window.Telegram.WebApp.HapticFeedback.impactOccurred("medium")
@@ -244,7 +245,7 @@ window.Telegram.WebApp.enableClosingConfirmation()
 mainButton = Telegram.WebApp.MainButton.setParams({
     text: '💰:10 BLAST',
     is_visible: true
-})
+}).onClick(matches);
 Telegram.WebApp.MainButton.disable()
 window.Telegram.WebApp.ready()
 setTimeout(() => {
@@ -255,7 +256,9 @@ setTimeout(() => {
 }, 500);
 });
 
-
+var matches = () => {
+    alert('Window opens with matches, PnL and option to sell.');
+}
 </script>
 
 </body>
