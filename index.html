@@ -1,85 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Candlestick Chart</title>
-</head>
-<body>
-
-<div id="chart-container"></div>
-
-<script>
-// Function to generate a random integer between min and max
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// Function to draw a candlestick
-function drawCandlestick(ctx, x, high, low, open, close, width) {
-  const color = close > open ? 'green' : 'red';
-  ctx.fillStyle = color;
-  ctx.strokeStyle = color;
-
-  // Draw the line from high to low
-  ctx.beginPath();
-  ctx.moveTo(x + width / 2, high);
-  ctx.lineTo(x + width / 2, low);
-  ctx.stroke();
-
-  // Draw the rectangle for the open-close interval
-  ctx.beginPath();
-  ctx.rect(x, open, width, close - open);
-  ctx.fill();
-  ctx.stroke();
-}
-
-// Function to generate and draw random candlesticks
-function generateCandlesticks() {
-  const canvas = document.createElement('canvas');
-  canvas.width = 300;
-  canvas.height = 300;
-  const ctx = canvas.getContext('2d');
-
-  const candleWidth = 10;
-  const gap = 5;
-  let x = 0;
-
-  // Draw each candlestick
-  while (x < canvas.width) {
-    const high = getRandomInt(50, canvas.height - 50);
-    const low = getRandomInt(50, canvas.height - 50);
-    const open = getRandomInt(50, canvas.height - 50);
-    const close = getRandomInt(50, canvas.height - 50);
-    drawCandlestick(ctx, x, Math.max(high, low), Math.min(high, low), open, close, candleWidth);
-    x += candleWidth + gap;
-  }
-
-  // Convert the canvas to an image and add it to the page
-  const img = new Image();
-  img.src = canvas.toDataURL('image/png');
-  img.width = 300;
-  img.height = 300;
-  document.getElementById('chart-container').appendChild(img);
-}
-
-// Generate the candlesticks when the script loads
-generateCandlesticks();
-</script>
-
-</body>
-</html>
-
-
-
-
- -->
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,19 +64,7 @@ generateCandlesticks();
 </style>
 </head>
 <body>
-
-<div class="card">
-  <img src="https://via.placeholder.com/300x300" alt="Profile Image">
-  <div class="card-info">
-    <h3>Name</h3>
-    <p>Description text goes here...</p>
-  </div>
-  <div class="buttons">
-    <button class="button no" onclick="decline()">PASS</button>
-    <button class="button yes" onclick="match()">BUY</button>
-  </div>
-</div>
-
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
 function match() {
   alert('Match!');
@@ -329,15 +235,15 @@ addEventListener("load", (event) => {
 window.Telegram.WebApp.BackButton.hide()
 window.Telegram.WebApp.enableClosingConfirmation()
 mainButton = Telegram.WebApp.MainButton.setParams({
-    text: 'MATCHES',
+    text: 'Wallet:10 BLAST',
     is_visible: true
-}).onClick(openModal);
-Telegram.WebApp.MainButton.enable()
+})
+Telegram.WebApp.MainButton.disable()
 window.Telegram.WebApp.ready()
 setTimeout(() => {
     mainButton.color = Telegram.WebApp.themeParams.button_color
     mainButton.textColor = Telegram.WebApp.themeParams.button_text_color
-    mainButton.text = "MATCHES"
+    mainButton.text =  'Wallet:10 BLAST',
     window.Telegram.WebApp.expand()
 }, 500);
 });
