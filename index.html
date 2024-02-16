@@ -67,12 +67,14 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
 function match() {
+    window.Telegram.WebApp.HapticFeedback.impactOccurred("medium")
   alert('Match!');
   // Here you would handle the "match" action, such as updating the UI or fetching the next profile
   addNewCard(shitcoins[Math.floor(Math.random()*shitcoins.length)].name + " ("+shitcoins[Math.floor(Math.random()*shitcoins.length)].symbol+")", shitcoins[Math.floor(Math.random()*shitcoins.length)].description , generateCandlesticks())
 }
 
 function decline() {
+    window.Telegram.WebApp.HapticFeedback.impactOccurred("light")
     addNewCard(shitcoins[Math.floor(Math.random()*shitcoins.length)].name + " ("+shitcoins[Math.floor(Math.random()*shitcoins.length)].symbol+")", shitcoins[Math.floor(Math.random()*shitcoins.length)].description , generateCandlesticks())
   // Here you would handle the "decline" action, such as updating the UI or fetching the next profile
 }
