@@ -66,7 +66,10 @@
 <body>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
+    let balance = 10;
 function match() {
+    balance -= 1;
+    mainButton.text =  '💰:'+ balance +' BLAST/Matches',
     window.Telegram.WebApp.HapticFeedback.impactOccurred("medium")
   alert('Match!');
   // Here you would handle the "match" action, such as updating the UI or fetching the next profile
@@ -237,7 +240,7 @@ addEventListener("load", (event) => {
 window.Telegram.WebApp.BackButton.hide()
 window.Telegram.WebApp.enableClosingConfirmation()
 mainButton = Telegram.WebApp.MainButton.setParams({
-    text: 'Wallet:10 BLAST',
+    text: '💰:10 BLAST',
     is_visible: true
 })
 Telegram.WebApp.MainButton.disable()
@@ -245,7 +248,7 @@ window.Telegram.WebApp.ready()
 setTimeout(() => {
     mainButton.color = Telegram.WebApp.themeParams.button_color
     mainButton.textColor = Telegram.WebApp.themeParams.button_text_color
-    mainButton.text =  'Wallet:10 BLAST',
+    mainButton.text =  '💰:'+ balance +' BLAST',
     window.Telegram.WebApp.expand()
 }, 500);
 });
