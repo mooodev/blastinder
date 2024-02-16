@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tinder-like Interface</title>
+<title>BLASTINDER SWIPE&TRADE</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -13,13 +13,14 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f7f7f7;
+    background-image: radial-gradient(circle,#8d4040, #e5832c);
   }
   .card {
     width: 300px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     overflow: hidden;
+    background-color: #666;
   }
   .card img {
     width: 100%;
@@ -42,6 +43,8 @@
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #666;
   }
   .button {
     border: none;
@@ -70,8 +73,8 @@
     <p>Description text goes here...</p>
   </div>
   <div class="buttons">
-    <button class="button no" onclick="decline()">NO</button>
-    <button class="button yes" onclick="match()">YES</button>
+    <button class="button no" onclick="decline()">PASS</button>
+    <button class="button yes" onclick="match()">BUY</button>
   </div>
 </div>
 
@@ -85,6 +88,106 @@ function decline() {
   alert('Declined!');
   // Here you would handle the "decline" action, such as updating the UI or fetching the next profile
 }
+
+var addNewCard = (name, description, chart) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const img = document.createElement('img');
+    img.src = chart;
+
+    const cardInfo = document.createElement('div');
+    cardInfo.classList.add('card-info');
+
+    const cardName = document.createElement('h3');
+    cardName.textContent = name;
+
+    const cardDesc = document.createElement('p');
+    cardDesc.textContent = description;
+
+    cardInfo.appendChild(cardName);
+    cardInfo.appendChild(cardDesc);
+
+    const buttons = document.createElement('div');
+    buttons.classList.add('buttons');
+
+    const buttonNo = document.createElement('button');
+    buttonNo.classList.add('button', 'no');
+    buttonNo.textContent = "PASS";
+    buttonNo.onclick = decline; // Assign the decline function to the onclick event
+
+    const buttonYes = document.createElement('button');
+    buttonYes.classList.add('button', 'yes');
+    buttonYes.textContent = "BUY";
+    buttonYes.onclick = match; // Assign the match function to the onclick event
+
+    buttons.appendChild(buttonNo);
+    buttons.appendChild(buttonYes);
+
+    card.appendChild(img);
+    card.appendChild(cardInfo);
+    card.appendChild(buttons);
+
+    // Instead of replacing the entire body's innerHTML, append the new card
+    document.body.innerHTML = ''
+    document.body.appendChild(card);
+}
+
+const shitcoins = [
+  {
+    name: "MoonYield",
+    symbol: "MYD",
+    description: "A token that promises high returns on staking but has no real project or utility behind it."
+  },
+  {
+    name: "PumpNDump",
+    symbol: "PND",
+    description: "A coin that is often subject to price manipulations and has a community focused on short-term gains."
+  },
+  {
+    name: "RugPullToken",
+    symbol: "RPT",
+    description: "A token with anonymous developers and a high risk of the team disappearing with investors' funds."
+  },
+  {
+    name: "NoUseCoin",
+    symbol: "NUC",
+    description: "A coin that was created as a joke, with no clear use case or value proposition."
+  },
+  {
+    name: "CopyPasteCash",
+    symbol: "CPC",
+    description: "A blatant clone of another successful cryptocurrency, offering no innovation or differentiation."
+  },
+  {
+    name: "ScamChain",
+    symbol: "SCAM",
+    description: "A project with a whitepaper that is full of buzzwords but lacks technical substance or a working product."
+  },
+  {
+    name: "InfiniteICO",
+    symbol: "IICO",
+    description: "A coin that has been in an initial coin offering (ICO) stage for years without launching a mainnet."
+  },
+  {
+    name: "VaporWare",
+    symbol: "VPR",
+    description: "A token associated with a project that has lots of hype but no actual software development."
+  },
+  {
+    name: "ExitScamCoin",
+    symbol: "ESC",
+    description: "A highly suspicious token with a high likelihood of the project team disappearing after the ICO."
+  },
+  {
+    name: "Pyramidium",
+    symbol: "PYRA",
+    description: "A token that operates on a pyramid scheme model, rewarding early adopters at the expense of new investors."
+  }
+];
+
+console.log(shitcoins);
+
 </script>
 
 </body>
