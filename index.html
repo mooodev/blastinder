@@ -248,11 +248,11 @@ mainButton = Telegram.WebApp.MainButton.setParams({
 }).onClick(matches);
 Telegram.WebApp.MainButton.disable()
 window.Telegram.WebApp.ready()
+window.Telegram.WebApp.expand()
 setTimeout(() => {
     mainButton.color = Telegram.WebApp.themeParams.button_color
     mainButton.textColor = Telegram.WebApp.themeParams.button_text_color
-    mainButton.text =  '💰:'+ balance +' BLAST',
-    window.Telegram.WebApp.expand()
+    mainButton.text =  '💰:'+ balance +' BLAST';
 }, 500);
 });
 
